@@ -1,0 +1,2 @@
+# Reversi
+Python BrightCode project
