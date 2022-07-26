@@ -14,15 +14,15 @@ class GameController:
 
             self.view.display_player(self.model.moveset.curr_player)
             row, col = self.view.get_move()
-
-            res = self.model.is_valid_move(col, row, self.model.moveset.curr_player)
+            
+            res = self.model.is_valid_move(col , row, self.model.moveset.curr_player)
 
             i = empty
             while not res:
                 print('Incorrect move! Try again')
                 i -= 1
                 row, col = self.view.get_move()
-                res = self.model.is_valid_move(col, row, self.model.moveset.curr_player)
+                res = self.model.is_valid_move(col - 1, row - 1, self.model.moveset.curr_player)
 
             self.model.moveset.make_move(row, col, res)
             white, black, empty = self.model.moveset.board.count_cells()
