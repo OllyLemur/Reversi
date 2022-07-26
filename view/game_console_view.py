@@ -1,12 +1,12 @@
 from turtle import back
 from view.game_view import GameView
 from view.board_console_view import BoardConsoleView
-from model.moveset import Moveset
+from model.classic_game import ClassicGameRules
 
 class GameConsoleView(GameView):
-    def __init__(self, game: Moveset) -> None:
+    def __init__(self, game: ClassicGameRules) -> None:
         super().__init__(game)
-        self.board_view = BoardConsoleView(game.board)
+        self.board_view = BoardConsoleView(game.moveset.board)
 
     def get_move(self):
         s = input('Enter your move (row, col): ').split(',')

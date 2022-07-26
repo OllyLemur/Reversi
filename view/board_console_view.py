@@ -17,8 +17,8 @@ class BoardConsoleView(BoardView):
         print(header)
         print(line)
         for j in range(board_size):
-            print(f' {j + 1}|')
-            for j in range(board_size):
+            print(f' {j + 1}|', end='')
+            for i in range(board_size):
                 cell = self.board.get_sell(j, i)
                 print(f' {self.symbols[cell]} |', end='')
-            print(line)
+            print('\n'+line)

@@ -15,13 +15,13 @@ class ClassicGameRules(GameRules):
         for direction in directions:
             curr_cell = target_cell
             curr_cell = (curr_cell[0] + direction[0], curr_cell[1] + direction[1])
-            if board.get_sell(curr_cell[0], curr_cell[1]) == 3 - curr_player:
+            if board.get_sell(curr_cell[1], curr_cell[0]) == 3 - curr_player:
                 while curr_cell[0] < board.size and curr_cell[0] > 0 and curr_cell[1] > 0 and curr_cell[1] < board.size:
                     curr_cell = (curr_cell[0] + direction[0], curr_cell[1] + direction[1])
-                    if board.get_sell(curr_cell[0], curr_cell[1]) == curr_player:
+                    if board.get_sell(curr_cell[1], curr_cell[0]) == curr_player:
                         result.append((direction, curr_cell))
                         break
-                    elif board.get_sell(curr_cell[0], curr_cell[1]) == 3 - curr_player:
+                    elif board.get_sell(curr_cell[1], curr_cell[0]) == 3 - curr_player:
                         continue
                     else:
                         break

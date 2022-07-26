@@ -22,6 +22,7 @@ class Board:
     def count_cells(self):
         white = 0
         black = 0
+        empty = self.size ** 2
 
         for j in range(len(self.mat)):
             for i in range (len(self.mat)):
@@ -30,4 +31,6 @@ class Board:
                 if self.mat[j][i] == PlayersSymbols.X:
                     black += 1
         
-        return (white, black)
+        empty = empty - black - white
+        
+        return white, black, empty

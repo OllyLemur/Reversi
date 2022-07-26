@@ -4,8 +4,7 @@ from model.players_symbols import PlayersSymbols
 class Moveset:
     def __init__(self, board_size):
         self.board = Board(board_size)
-        self.curr_player = PlayersSymbols.O
-
+        self.curr_player = PlayersSymbols.X
     def change_player(self):
         self.curr_player = 3 - self.curr_player
     
