@@ -9,9 +9,9 @@ class Board:
 
         self.mat = [[self.EMPTY_CELL] * size for _ in range(size)]
         self.mat[len(self.mat) // 2][len(self.mat) // 2] = PlayersSymbols.O
-        self.mat[len(self.mat) // 2 + 1][len(self.mat) // 2] = PlayersSymbols.X
-        self.mat[len(self.mat) // 2][len(self.mat) // 2 + 1] = PlayersSymbols.X
-        self.mat[len(self.mat) // 2 + 1][len(self.mat) // 2 + 1] = PlayersSymbols.O
+        self.mat[len(self.mat) // 2 - 1][len(self.mat) // 2] = PlayersSymbols.X
+        self.mat[len(self.mat) // 2][len(self.mat) // 2 - 1] = PlayersSymbols.X
+        self.mat[len(self.mat) // 2 - 1][len(self.mat) // 2 - 1] = PlayersSymbols.O
 
     def get_sell(self, row, col):
         return self.mat[row][col]

@@ -7,7 +7,7 @@ class ClassicGameRules(GameRules):
         
 
     def is_valid_move(self, col, row, curr_player):
-        target_cell = (col, row)
+        target_cell = (col - 1, row - 1)
         board = self.moveset.board
         directions = [(0, 1), (0, -1), (1, 0), (-1, 0), (1, 1), (1, -1), (-1, 1), (-1, -1)]
         result = []
