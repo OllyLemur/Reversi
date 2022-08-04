@@ -1,3 +1,4 @@
+from soupsieve import select
 from model.board import Board
 from model.players_symbols import PlayersSymbols
 
@@ -17,3 +18,13 @@ class Moveset:
                 current_cell = (current_cell[0] + res[i][0][0], current_cell[1] + res[i][0][1])
                 self.board.update_sell(current_cell[1], current_cell[0], self.curr_player)
 
+    def get_possible_move(self, is_valid_move, curr_player):
+        result = []
+
+        for row in range(1, self.board.size + 1):
+            for col in range(1, self.board.size + 1):
+                res = is_valid_move(col, row, curr_player)
+                if res != []:
+                    result.append(res)
+        
+        return result
