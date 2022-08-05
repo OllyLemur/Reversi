@@ -17,7 +17,7 @@ class GameConsoleView(GameView):
         self.board_view.draw_board()
 
     def display_winner(self, player):
-        print(player)
+        print(f'{player} is Winner!')
 
     def display_score(self, white, black):
         print(f'X score: {black}, O score: {white}')

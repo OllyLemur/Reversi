@@ -12,8 +12,8 @@ class ClassicGameRules(GameRules):
         directions = [(0, 1), (0, -1), (1, 0), (-1, 0), (1, 1), (1, -1), (-1, 1), (-1, -1)]
         result = []
 
-        # if board.get_sell(target_cell[1], target_cell[0]) != 0:
-        #     return result
+        if board.get_sell(target_cell[1], target_cell[0]) != 0:
+             return result
 
         for direction in directions:
             curr_cell = target_cell
@@ -37,9 +37,9 @@ class ClassicGameRules(GameRules):
         return result
                         
 
-    def check_winner(self, num_white, num_black):
-        if num_black == 0:
+    def check_winner(self, white, black):
+        if black == 0:
             return True
-        if num_white == 0:
+        if white == 0:
             return False
-        return num_white > num_black #True — white are winers, False - black win
+        return white > black #True — white are winers, False - black win

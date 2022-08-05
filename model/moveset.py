@@ -19,12 +19,12 @@ class Moveset:
                 self.board.update_sell(current_cell[1], current_cell[0], self.curr_player)
 
     def get_possible_move(self, is_valid_move, curr_player):
-        result = []
+        possible_moves = {}
 
         for row in range(1, self.board.size + 1):
             for col in range(1, self.board.size + 1):
                 res = is_valid_move(col, row, curr_player)
                 if res != []:
-                    result.append(res)
+                    possible_moves[(col, row)] = res
         
-        return result
+        return possible_moves
