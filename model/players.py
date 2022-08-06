@@ -1,7 +1,9 @@
 from abc import ABC, abstractmethod
 
 class Players(ABC):
+    def __init__(self, value) -> None:
+        self.value = value
 
     @abstractmethod
-    def choose_move(self):
+    def get_move(self):
         pass

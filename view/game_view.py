@@ -6,10 +6,6 @@ class GameView(ABC):
         self.game = game
 
     @abstractclassmethod
-    def get_move(self):
-        pass
-
-    @abstractclassmethod
     def draw_board(self):
         pass
 

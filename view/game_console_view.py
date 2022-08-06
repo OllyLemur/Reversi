@@ -8,11 +8,6 @@ class GameConsoleView(GameView):
         super().__init__(game)
         self.board_view = BoardConsoleView(game.moveset.board)
 
-    def get_move(self):
-        s = input('Enter your move (row, col): ').split(',')
-        row, col = int(s[0]), int(s[1])
-        return row, col
-
     def draw_board(self):
         self.board_view.draw_board()
 

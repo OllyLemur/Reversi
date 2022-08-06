@@ -2,8 +2,10 @@ from model.players import Players
 import copy
 
 class SimpleAI(Players):
+    def __init__(self, value) -> None:
+        super().__init__(value)
     
-    def choose_move(self, possible_moves: dict):
+    def get_move(self, possible_moves: dict):
         copy_possible_moves = copy.deepcopy(possible_moves)
         most_moves = 0
         point = (0, 0)

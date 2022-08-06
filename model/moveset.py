@@ -1,11 +1,12 @@
 from soupsieve import select
 from model.board import Board
-from model.players_symbols import PlayersSymbols
+from model.players import Players
 
 class Moveset:
     def __init__(self, board_size):
         self.board = Board(board_size)
-        self.curr_player = PlayersSymbols.X
+        self.curr_player = 1
+
     def change_player(self):
         self.curr_player = 3 - self.curr_player
     
@@ -25,6 +26,6 @@ class Moveset:
             for col in range(1, self.board.size + 1):
                 res = is_valid_move(col, row, curr_player)
                 if res != []:
-                    possible_moves[(col, row)] = res
+                    possible_moves[(row, col)] = res
         
         return possible_moves
