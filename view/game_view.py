@@ -2,6 +2,9 @@ from abc import ABC, abstractclassmethod
 from model.moveset import Moveset
 
 class GameView(ABC):
+    """ Abstract class for the visual presentation of the game
+    """
+    
     def __init__(self, game: Moveset) -> None:
         self.game = game
 

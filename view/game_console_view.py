@@ -4,6 +4,9 @@ from view.board_console_view import BoardConsoleView
 from model.classic_game import ClassicGameRules
 
 class GameConsoleView(GameView):
+    """ Inherited class from GameView for building the game view in the console.
+    """
+    
     def __init__(self, game: ClassicGameRules) -> None:
         super().__init__(game)
         self.board_view = BoardConsoleView(game.moveset.board)

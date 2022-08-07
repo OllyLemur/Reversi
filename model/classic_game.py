@@ -6,9 +6,8 @@ class ClassicGameRules(GameRules):
         super().__init__(board_size)
         
 
-    def is_valid_move(self, col, row, curr_player):
+    def is_valid_move(self, col, row, curr_player, board):
         target_cell = (col - 1, row - 1)
-        board = self.moveset.board
         directions = [(0, 1), (0, -1), (1, 0), (-1, 0), (1, 1), (1, -1), (-1, 1), (-1, -1)]
         result = []
 
