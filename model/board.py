@@ -1,4 +1,3 @@
-from sympy import O
 from model.players_symbols import PlayersSymbols
 
 class Board:
@@ -14,12 +13,32 @@ class Board:
         self.mat[len(self.mat) // 2 - 1][len(self.mat) // 2 - 1] = PlayersSymbols.O
 
     def get_sell(self, row, col):
+        """Function get value of cell
+
+        Args:
+            row (int): cell coordinates
+            col (int): cell coordinates
+
+        Returns:
+            int: cell value
+        """
         return self.mat[row][col]
 
     def update_sell(self, row, col, player):
+        """Function update value of cell
+
+        Args:
+            row (int): cell coordinates
+            col (int): cell coordinates
+        """
         self.mat[row][col] = player
 
     def count_cells(self):
+        """_summary_
+
+        Returns:
+            white: int, black: int, empty int: number of white, black, empty cells
+        """
         white = 0
         black = 0
         empty = self.size ** 2

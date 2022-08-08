@@ -7,6 +7,17 @@ class ClassicGameRules(GameRules):
         
 
     def is_valid_move(self, col, row, curr_player, board):
+        """Function checks the validity of the move
+
+        Args:
+            col (int): col of target cell
+            row (int): row of target cell
+            curr_player (int): value of current player
+            board (Board): current board
+
+        Returns:
+            list: [(direction, tnd cell)]
+        """
         target_cell = (col - 1, row - 1)
         directions = [(0, 1), (0, -1), (1, 0), (-1, 0), (1, 1), (1, -1), (-1, 1), (-1, -1)]
         result = []
@@ -37,8 +48,19 @@ class ClassicGameRules(GameRules):
                         
 
     def check_winner(self, white, black):
+        """Fuction check winner if no possible moves
+
+        Args:
+            white (int)
+            black (int)
+
+        Returns:
+            True, False, -1
+        """
         if black == 0:
             return True
         if white == 0:
             return False
+        if white == black:
+            return -1
         return white > black #True — white are winers, False - black win

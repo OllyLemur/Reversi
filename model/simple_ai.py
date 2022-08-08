@@ -6,6 +6,14 @@ class SimpleAI(Players):
         super().__init__(value)
     
     def get_move(self, possible_moves: dict):
+        """Function determines AI move
+
+        Args:
+            possible_moves (dict): {(possible move)):[(direction, end cell)]}
+
+        Returns:
+            point (tuple): (row, col)
+        """
         copy_possible_moves = copy.deepcopy(possible_moves)
         most_moves = 0
         point = (0, 0)

@@ -41,19 +41,41 @@ class GameController:
             self.model.moveset.change_player()
 
     def _draw_desk(self, white, black):
+        """Function draw board, display score and player
+
+        Args:
+            white (int)
+            black (int)
+        """
         self.view.draw_board()
         self.view.display_score(white, black)
         self.view.display_player(self.model.moveset.curr_player)
 
     def _determine_the_winner(self, white, black):
+        """function checks the winner and displays score on the screen
+
+        Args:
+            white (int):
+            black (int):
+        """
         winner = self.model.check_winner(white, black)
-        if winner:
+        if winner == True:
             self.view.display_winner('O')
-        else:
+        elif winner == False:
             self.view.display_winner('X')
+        elif winner == -1:
+            print('Draw!')
 
 
     def _get_move(self, possible_moves):
+        """Determines the move depending on the type of player
+
+        Args:
+            possible_moves (dict): {(possible move)):[(direction, end cell)]}
+
+        Returns:
+            row (int), col (int): row, col of target cell
+        """
         curr_player = self.model.moveset.curr_player
         if curr_player == self.first_player.value and isinstance(self.first_player, AdvancedAI):
             row, col = self.first_player.get_move(self.model.moveset.board, possible_moves)

@@ -10,6 +10,15 @@ class AdvancedAI(Players):
         self.depth = depth
     
     def get_move(self, board, possible_moves):
+        """Function determines AI move
+
+        Args:
+            board (Board): current board
+            possible_moves (dict): {(possible move)):[(direction, end cell)]}
+
+        Returns:
+            point: (row, col)
+        """
         copy_possible_moves = copy.deepcopy(possible_moves)
         most_moves = 0
         point = (0, 0)
@@ -29,6 +38,17 @@ class AdvancedAI(Players):
         return point
 
     def minmax(self, board, max_player, min_player, depth):
+        """Representation of the minmax algorithm
+
+        Args:
+            board (Board): current board
+            max_player (AdvancedAI): selects the maximum board value
+            min_player (AdvancedAI): selects the minimum board value
+            depth (int): penetration depth of agoritm
+
+        Returns:
+            int: board_value
+        """
         if depth == 0:
             return self.get_board_value(board, max_player)
 
@@ -56,6 +76,15 @@ class AdvancedAI(Players):
             return min(values)
     
     def get_board_value(self, board: Board, player: Players):
+        """Heuristic function. Determines board value/
+
+        Args:
+            board (Board): current board
+            player (Players): current player
+
+        Returns:
+            int: board value
+        """
         board_value = 1
         white, black, empty = board.count_cells()
         if player.value == 1:

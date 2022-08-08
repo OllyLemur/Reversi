@@ -1,8 +1,4 @@
 from model.board import Board
-from model.players import Players
-from model.human_player import HumanPlayer
-from model.simple_ai import SimpleAI
-from model.advanced_ai import AdvancedAI
 
 class Moveset:
     def __init__(self, board_size):
@@ -10,16 +6,18 @@ class Moveset:
         self.curr_player = 1
 
     def change_player(self):
+        """Function changes the current player.
+        """
         self.curr_player = 3 - self.curr_player
     
     def make_move(self, row, col, res, board):
         """_summary_
 
         Args:
-            row (_type_): _description_
-            col (_type_): _description_
-            res (_type_): _description_
-            board (_type_): _description_
+            row (int): target cell coordinates
+            col (int): target cell coordinates
+            res (list): [(direction, end cell)]
+            board (Board): current board
         """
         target_cell = (col - 1, row - 1)
         board.update_sell(target_cell[1], target_cell[0], self.curr_player)
@@ -33,12 +31,12 @@ class Moveset:
         """_summary_
 
         Args:
-            is_valid_move (bool): _description_
-            curr_player (_type_): _description_
-            board (_type_): _description_
+            is_valid_move (function): function that determines the validity of a move
+            curr_player (int): value of current player
+            board (Board): current board
 
         Returns:
-            _type_: _description_
+            dict: {(possible move)):[(direction, end cell)]}
         """
         possible_moves = {}
 

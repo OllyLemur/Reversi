@@ -6,6 +6,14 @@ class HumanPlayer(Players):
         super().__init__(value)
 
     def get_move(self, possible_moves):
+        """Function get move from user
+
+        Args:
+            possible_moves (dict): {(possible move)):[(direction, end cell)]}
+
+        Returns:
+            row (int), col (int)
+        """
         s = input('Enter your move (row, col): ')
         
         row, col = self._move_validation(s)
@@ -21,6 +29,14 @@ class HumanPlayer(Players):
         return row, col
 
     def _move_validation(self, str):
+        """The function checks the correctness of the move entered by the user
+
+        Args:
+            str (string): user input
+
+        Returns:
+            row (int), col (int)
+        """
         regex = '\d+, +\d+'
         if bool(re.search(regex, str)):
             str = str.split(',')
