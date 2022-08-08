@@ -1,3 +1,5 @@
+import datetime
+
 from view.game_console_view import GameConsoleView
 from model.classic_game import ClassicGameRules
 from model.advanced_ai import AdvancedAI
@@ -61,11 +63,13 @@ class GameController:
         winner = self.model.check_winner(white, black)
         if winner == True:
             self.view.display_winner('O')
+            self._write_result_in_file('O', white, black)
         elif winner == False:
             self.view.display_winner('X')
+            self._write_result_in_file('X', white, black)
         elif winner == -1:
             print('Draw!')
-
+            self._write_result_in_file('Draw!', white, black)
 
     def _get_move(self, possible_moves):
         """Determines the move depending on the type of player
@@ -87,4 +91,18 @@ class GameController:
             elif curr_player == self.second_player.value:
                 row, col = self.second_player.get_move(possible_moves)
 
-        return row, col    
+        return row, col
+
+    def _write_result_in_file(self, winner, white, black):
+        now = datetime.datetime.now()
+        date = str(now.day) + str(now.month) + str(now.year)
+        score = f'O score: {white}, X score: {black}'
+        if winner == 'O' or winner == 'X':
+            str_winner = f'{winner} is win!'
+        else:
+            str_winner = f'{winner}'
+        
+        with open('resalts.txt', 'w') as f:
+            f.write(date + '\n')
+            f.write(score + '\n')
+            f.write(str_winner + '\n')
