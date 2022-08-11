@@ -18,7 +18,7 @@ class HumanPlayer(Players):
         
         row, col = self._move_validation(s)
 
-        if (col, row) not in possible_moves:
+        if (row, col) not in possible_moves:
             while True:
                 print('Incorrect move! Try again')
                 s = input('Enter your move (row, col): ')
@@ -37,7 +37,7 @@ class HumanPlayer(Players):
         Returns:
             row (int), col (int)
         """
-        regex = '\d+, +\d+'
+        regex = '\d+, ?\d+'
         if bool(re.search(regex, str)):
             str = str.split(',')
             row, col = int(str[0]), int(str[1])

@@ -1,4 +1,5 @@
 from model.players import Players
+from model.board import Board
 import copy
 
 class SimpleAI(Players):
@@ -14,6 +15,9 @@ class SimpleAI(Players):
         Returns:
             point (tuple): (row, col)
         """
+        if not possible_moves:
+            raise ValueError
+
         copy_possible_moves = copy.deepcopy(possible_moves)
         most_moves = 0
         point = (0, 0)
