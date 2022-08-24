@@ -9,7 +9,7 @@ from model.human_player import HumanPlayer
 
 class ConsoleUI:
     def create_ui(self):
-        board_size = input('Enter board size (4, 6, 8, 10, 12): ')
+        board_size = int(input('Enter board size (4, 6, 8, 10, 12): '))
 
         model = ClassicGameRules(board_size)
         view = GameConsoleView(model)
